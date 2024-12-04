@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -32,5 +33,9 @@ public class CustomerController {
     @DeleteMapping("/delete/{id}")
     public void deleteCustomer(@PathVariable Integer id){
         service.deleteCustomer(id);
+    }
+    @GetMapping("/get-all")
+    public List<Customer> getAll(){
+        return service.getAll();
     }
 }
